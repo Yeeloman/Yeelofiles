@@ -17,6 +17,7 @@
 		# Common Aliases
 	st = status  # Shorter 'git status'
 	co = checkout  # Shorter 'git checkout'
+	ft = fetch 
 	sw = switch  # Switch branches
 	swc = switch -c # create new branch
 	br = branch  # Shorter 'git branch'

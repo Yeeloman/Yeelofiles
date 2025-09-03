@@ -1,4 +1,4 @@
-alias ls="exa --icons -s extension --group-directories-first"
+alias ls="exa --icons -as extension --group-directories-first"
 alias cc="cd ~/.config"
 alias n="nvim "
 alias sn="sudo -E nvim"
@@ -35,3 +35,5 @@ alias convert='magick convert'
 alias ranwal="~/.config/myScripts/random_wallpaper"
 alias git="git --no-pager"
 alias dea="deactivate"
+alias ..="z .."
+alias ...="z ../.."

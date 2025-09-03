@@ -4,8 +4,14 @@
 export CHROME_EXECUTABLE='/usr/bin/google-chrome-stable'
 export PATH=$HOME/dev/go/bin:$PATH
 export PATH=$HOME/dev/flutter/bin:$PATH
+
+# for pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 # Path to your Oh My Zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -78,7 +84,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -151,4 +157,7 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 . "$HOME/.local/bin/env"
 
 # Start ssh-agent if not already running
-eval "$(keychain --eval --agents ssh id_github)"
+eval "$(keychain --eval --quiet id_github)"
+
+# Created by `pipx` on 2025-08-20 17:00:24
+export PATH="$PATH:/home/katestheimeno/.local/bin"
