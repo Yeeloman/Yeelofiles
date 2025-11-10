@@ -92,15 +92,6 @@ Simply run the script again—it will backup existing rules and create new ones.
 - **Permissions**: `0660` (read/write for owner and group)
 - **Backups**: Automatic timestamped backups of existing rules
 
-## Suggested Script Name
-
-Consider renaming to: `setup-hid-permissions.sh`
-
-This name is:
-- More descriptive of what it does (setup vs fix)
-- Generic enough for any HID device
-- Follows common Linux script naming conventions
-
 ## License
 
 This script is provided as-is for configuring HID device permissions on Linux systems.
