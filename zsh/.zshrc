@@ -157,7 +157,7 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 . "$HOME/.local/bin/env"
 
 # Start ssh-agent if not already running
-eval "$(keychain --eval --quiet id_github)"
+# eval "$(keychain --eval --quiet id_github)"
 
 # Created by `pipx` on 2025-08-20 17:00:24
 export PATH="$PATH:/home/katestheimeno/.local/bin"

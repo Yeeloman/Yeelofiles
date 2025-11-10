@@ -4,25 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "b56d8c8e0c3cb934",
+        "id": "acfb784a8160dbb6",
         "type": "tabs",
         "children": [
           {
-            "id": "0a5722c748367867",
+            "id": "3373c5a6f7d5c089",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Random/Color_theory.md",
+                "file": "RHITORIC.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Color_theory"
+              "title": "RHITORIC"
             }
           }
-        ],
-        "stacked": true
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,9 +92,29 @@
               "icon": "sheets-in-box",
               "title": "File Tree"
             }
+          },
+          {
+            "id": "de42cc5619ba64d5",
+            "type": "leaf",
+            "state": {
+              "type": "file-tree-view",
+              "state": {},
+              "icon": "sheets-in-box",
+              "title": "File Tree"
+            }
+          },
+          {
+            "id": "53fefd0117a6cd5a",
+            "type": "leaf",
+            "state": {
+              "type": "file-tree-view",
+              "state": {},
+              "icon": "sheets-in-box",
+              "title": "File Tree"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -175,6 +194,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -188,8 +208,24 @@
       "darlal-switcher-plus:Open Symbols for the active editor": false
     }
   },
-  "active": "0a5722c748367867",
+  "active": "3373c5a6f7d5c089",
   "lastOpenFiles": [
+    "Meta/core/database/user.md",
+    "Meta/core/database/follow.md",
+    "Meta/core/client.md",
+    "Meta/core/barber.md",
+    "Meta/core/owner.md",
+    "Meta/core/shop_agenda.md",
+    "Meta/core/barber_schedule.md",
+    "Meta/core/booking.md",
+    "Meta/core/database/shop.md",
+    "Meta/core/db_example.md",
+    "Meta/core/database/index.md",
+    "APIs/auth.md",
+    "Architecture/core/decisions/index.md",
+    "Architecture/core/decisions/0001-project_architecture.md",
+    "APIs/index.md",
+    "APIs/user.md",
     "Philosophy/Empircisim.md",
     "Philosophy/Tier_0/Metaphysics.md",
     "Philosophy/Tier_0/scrubs/metaphysics_scrubs.md",
@@ -202,26 +238,10 @@
     "Random",
     "Machine_Learning/Machine learning - Overview.md",
     "brainStorm/MindInk/MindInk - Overview.md",
-    "Excalidraw/MindInk.excalidraw.md",
-    "Conspiracy_theories/Tier_1/Brainwashing.md",
-    "Excalidraw/Drawing 2024-12-30 01.23.39.excalidraw.md",
-    "Excalidraw/Drawing 2024-12-27 21.32.58.excalidraw.md",
-    "Machine_Learning/Linear_algebra.md",
     "brainStorm/MindInk",
-    "Excalidraw/Drawing 2024-11-30 14.17.58.excalidraw.md",
     "Excalidraw",
-    "Conspiracy_theories/assets/Iceberg Image.md",
     "Machine_Learning/cop_robber_graph.png",
-    "Templates/philo_topic.md",
-    "Routine - prototype.md",
-    "Concepts/Web_concepts/ACL.md",
-    "Concepts/Search_Algorithms/Binary_Search.md",
-    "`weight`.md",
-    "where_everything_starts.md",
     "Machine_Learning",
-    "Changing Subnet to /25.md",
-    "Concepts/Web_concepts/Web_Framework.md",
-    "problem.md",
     "Philosophy/Tier_0/scrubs",
     "Philosophy/Philosophers",
     "Philosophy/assets",
