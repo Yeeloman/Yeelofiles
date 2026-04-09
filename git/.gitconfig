@@ -1,6 +1,7 @@
 [user]
 	email = yami.onlyme@gmail.com
 	name = Yeeloman
+	signingKey = 747ACD17FBE52854CBF01AD72C54786851F987B6
 [core]
 	editor = nvim
 [pull]
@@ -63,3 +64,5 @@
 	conflictstyle = diff3  # Show more context in merge conflicts
 [safe]
 	directory = /usr/share/sddm/themes/yeelo-sddm
+[commit]
+	gpgSign = true

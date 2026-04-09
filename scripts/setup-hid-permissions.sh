@@ -55,6 +55,18 @@ print_separator() {
 }
 
 #------------------------------------------------------------------------------
+# Utility: Trim whitespace (bash-native, no xargs dependency)
+#------------------------------------------------------------------------------
+trim() {
+    local var="$*"
+    # Remove leading whitespace
+    var="${var#"${var%%[![:space:]]*}"}"
+    # Remove trailing whitespace
+    var="${var%"${var##*[![:space:]]}"}"
+    printf '%s' "$var"
+}
+
+#------------------------------------------------------------------------------
 # Error handler
 #------------------------------------------------------------------------------
 cleanup() {
@@ -84,10 +96,19 @@ check_requirements() {
         exit 1
     fi
    
+    # Check if stdin is a TTY (required for interactive input)
+    if [[ ! -t 0 ]]; then
+        log_error "This script requires an interactive terminal"
+        log_info "Please run this script from a terminal, not via pipe or redirect"
+        exit 1
+    fi
+   
     # Check if running as root (not recommended)
     if [[ $EUID -eq 0 ]]; then
         log_warning "Running as root is not recommended"
-        read -rp "Continue anyway? (y/N): " confirm
+        if ! read -rp "Continue anyway? (y/N): " confirm; then
+            exit 1
+        fi
         [[ "$confirm" =~ ^[Yy]$ ]] || exit 0
     fi
    
@@ -176,6 +197,18 @@ detect_hid_devices() {
 # Get user selection
 #------------------------------------------------------------------------------
 get_user_selection() {
+    # Check if HID_PATHS is set and not empty
+    if [[ ${#HID_PATHS[@]} -eq 0 ]]; then
+        log_error "No HID devices available for selection"
+        exit 1
+    fi
+    
+    # Double-check that stdin is still a TTY
+    if [[ ! -t 0 ]]; then
+        log_error "Stdin is no longer a terminal. Cannot read user input."
+        exit 1
+    fi
+    
     local max_devices=${#HID_PATHS[@]}
    
     print_separator
@@ -189,10 +222,20 @@ get_user_selection() {
     local selection valid_selection=false
    
     while [[ "$valid_selection" == false ]]; do
+        # Temporarily disable exit on error for read command
+        set +e
         read -rp "${BOLD}Your selection:${RESET} " selection
+        local read_status=$?
+        set -e
+        
+        if [[ $read_status -ne 0 ]]; then
+            log_error "Failed to read input (exit code: $read_status)"
+            log_info "This may happen if stdin is not a terminal"
+            exit 1
+        fi
        
-        # Trim whitespace
-        selection=$(echo "$selection" | xargs)
+        # Trim whitespace using bash-native function
+        selection=$(trim "$selection")
        
         if [[ -z "$selection" ]]; then
             log_warning "Empty selection. Please try again."
@@ -204,7 +247,8 @@ get_user_selection() {
         IFS=',' read -ra parts <<< "$selection"
        
         for part in "${parts[@]}"; do
-            part=$(echo "$part" | xargs)  # Trim spaces
+            # Trim spaces using bash-native function
+            part=$(trim "$part")
            
             # Check for range (e.g., 1-3)
             if [[ "$part" =~ ^([0-9]+)-([0-9]+)$ ]]; then
@@ -238,7 +282,10 @@ get_user_selection() {
         fi
        
         # Remove duplicates and sort
-        SELECTED_INDICES=($(printf '%s\n' "${selected_indices[@]}" | sort -nu))
+        if ! SELECTED_INDICES=($(printf '%s\n' "${selected_indices[@]}" | sort -nu)); then
+            log_error "Failed to process selected indices"
+            exit 1
+        fi
         valid_selection=true
     done
    
@@ -402,10 +449,10 @@ main() {
     print_separator
    
     # Declare global arrays for device info
-    declare -a HID_PATHS
-    declare -a HID_INFO
-    declare -a SELECTED_INDICES
-    declare NEED_RELOGIN=false
+    declare -ga HID_PATHS
+    declare -ga HID_INFO
+    declare -ga SELECTED_INDICES
+    declare -g NEED_RELOGIN=false
    
     detect_hid_devices
     get_user_selection

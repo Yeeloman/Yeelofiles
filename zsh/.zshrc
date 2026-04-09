@@ -1,15 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # this for flutter to find chrom executable
-export CHROME_EXECUTABLE='/usr/bin/google-chrome-stable'
-export PATH=$HOME/dev/go/bin:$PATH
-export PATH=$HOME/dev/flutter/bin:$PATH
+# export CHROME_EXECUTABLE='/usr/bin/google-chrome-stable'
+# export PATH=$HOME/dev/go/bin:$PATH
+# export PATH=$HOME/dev/flutter/bin:$PATH
 
 # for pyenv setup
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
 # Path to your Oh My Zsh installation.
 # export ZSH=$HOME/.oh-my-zsh
 
@@ -149,15 +149,22 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 # mechvibes &>/dev/null &
 
 # just to change lazygit config whenever i reboot
-~/.config/myScripts/wal_lazygit.sh
+# ~/.config/myScripts/wal_lazygit.sh
 
 # Generated for envman.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-. "$HOME/.local/bin/env"
+# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+#
+# . "$HOME/.local/bin/env"
 
 # Start ssh-agent if not already running
 # eval "$(keychain --eval --quiet id_github)"
 
 # Created by `pipx` on 2025-08-20 17:00:24
-export PATH="$PATH:/home/katestheimeno/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
+
+# bun completions
+[ -s "/home/tmpusr/.bun/_bun" ] && source "/home/tmpusr/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
